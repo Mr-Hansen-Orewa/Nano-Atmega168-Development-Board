@@ -37,5 +37,6 @@ I am designing a development board for year 11 students (15-16 year olds) to use
 - A7 - goes to a header
 
 ## Cool bits
-I used the import bmp script in the automate menu to put the logo on the silkscreen
+I used the import bmp script in the automate menu to put the logo on the silkscreen. 
+
 I also put a testpoint rectangle in the tStop layer to leave it as exposed copper for a GND testpoint
