@@ -1,7 +1,7 @@
 #include <Servo.h>
 
-const String INTRO = "Testing the soldering on LEDs, Trimpot, LDR, DIP Switches, Button, and the 6 Signal,Power,Ground triples is working";
-const unsigned long PAUSEFOR = 1000;
+//const String INTRO = "Testing the soldering on LEDs, Trimpot, LDR, DIP Switches, Button, and the 6 Signal,Power,Ground triples is working";
+//const unsigned long PAUSEFOR = 1000;
 //Define all the pins
 const byte YLED = 13;
 const byte RLED = 9; //PWM
@@ -13,11 +13,13 @@ const byte BTN = 2;
 const byte DIP1 = 4;
 const byte DIP2 = 7;
 const byte DIP3 = 8;
-const byte SERVOPIN = 0; //use pins x, y, z to test all 6 S,P,G triples
+const byte SERVO1PIN = 6;
+const byte SERVO2PIN = 5;
+const byte SERVO3PIN = 3;
 
-
-
-Servo testServo;
+Servo testServo1;
+Servo testServo2;
+Servo testServo3;
 
 void setup() {
   pinMode(LDR, INPUT);
@@ -32,10 +34,15 @@ void setup() {
   pinMode(GLED, OUTPUT);
   pinMode(BLED, OUTPUT);
 
-  testServo.attach(SERVOPIN);
+  testServo1.attach(SERVO1PIN);
+  testServo1.write(0);
+  testServo2.attach(SERVO2PIN);
+  testServo2.write(0);
+  testServo3.attach(SERVO3PIN);
+  testServo3.write(0);
 
   Serial.begin(9600);
-  Serial.println(INTRO);
+  // Serial.println(INTRO);
   Serial.println("Setup done");
 
   //-------------------------------------
@@ -52,13 +59,12 @@ void setup() {
 //test will happen and may be noticed
 void loop() {
 
-
   //-------------------------------------
   //test button works
   //-------------------------------------
   if (digitalRead(BTN) == HIGH) {
     digitalWrite(YLED, !digitalRead(YLED));
-    delay(500);
+    delay(500); //to stop rapid changing if your click is slow
   }
   Serial.println("Button test done");
 
@@ -85,18 +91,23 @@ void loop() {
   Serial.println("DIP and trimpot tests done");
 
   //-------------------------------------
-  //test header triples
+  //test LDR and header triples
   //-------------------------------------
+  int servoPos = analogRead(LDR);
+  servoPos = map(servoPos, 0, 1023, 0, 180);
 
-
-  //-------------------------------------
-  //test LDR
-  //-------------------------------------
-
+  testServo1.write(servoPos);
+  testServo2.write(servoPos);
+  testServo3.write(servoPos);
+  delay(500);
+  //reset to 0 position
+  testServo1.write(0);
+  testServo2.write(0);
+  testServo3.write(0);
 }
 
-void blinkLED(byte pin, unsigned long pause) {
+void blinkLED(byte pin, unsigned long wait) {
   digitalWrite(pin, HIGH);
-  delay(pause);
+  delay(wait);
   digitalWrite(pin, LOW);
 }
