@@ -40,3 +40,8 @@ I am designing a development board for year 11 students (15-16 year olds) to use
 I used the import bmp script in the automate menu to put the logo on the silkscreen. 
 
 I also put a testpoint rectangle in the tStop layer to leave it as exposed copper for a GND testpoint.
+
+## Future ideas/versions
+Have a qwiic / stemmaQT connector on the I2C pins its a JST SH 4-pin Vertical Connector on Adafruit.
+Or have an led matrix board directly soldered to the I2C pins.
+Or another button without the debounce resistor - maybe both buttons have resistors but also those solder pads to enable or disable them once shown button bounce issues.
