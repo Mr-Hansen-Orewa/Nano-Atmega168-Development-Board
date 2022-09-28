@@ -9,7 +9,7 @@ I am designing a development board for year 11 students (15-16 year olds) to use
 - RGB LED
 - Trimpot
 - LDR
-- DIP switch
+- 3 switch DIP switch
 - Button
 
 ## Pinout and Headers
@@ -17,11 +17,11 @@ I am designing a development board for year 11 students (15-16 year olds) to use
  - D1 - goes to a header.
  - D2 - momentary switch.
  - D3 - goes to a header.
- - D4 - DIP switch.
+ - D4 - DIP switch 1.
  - D5 - goes to a header.
  - D6 - goes to a header.
- - D7 - DIP switch.
- - D8 - DIP switch.
+ - D7 - DIP switch 2.
+ - D8 - DIP switch 3.
  - D9 - RGB LED Blue/Green (silkscreen issues).
  - D10 - RGB LED Blue/Green (silkscreen issues).
  - D11 - RGB LED Red.
@@ -44,4 +44,5 @@ I also put a testpoint rectangle in the tStop layer to leave it as exposed coppe
 ## Future ideas/versions
 Have a qwiic / stemmaQT connector on the I2C pins its a JST SH 4-pin Vertical Connector on Adafruit.
 Or have an led matrix board directly soldered to the I2C pins.
-Or another button without the debounce resistor - maybe both buttons have resistors but also those solder pads to enable or disable them once shown button bounce issues.
+Or another button without the debounce resistor - maybe both buttons have resistors but also those PCB jumper solder pads to enable or disable them once shown button bounce issues.
+https://youtu.be/uOp_2-7_1Hw.
