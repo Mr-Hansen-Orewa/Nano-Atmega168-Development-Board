@@ -41,10 +41,10 @@ void setup() {
   //-------------------------------------
   //test all LEDs turn on and off
   //-------------------------------------
-  blinkLED(byte YLED, 1000);
-  blinkLED(byte RLED, 1000);
-  blinkLED(byte GLED, 1000);
-  blinkLED(byte BLED, 1000);
+  blinkLED(YLED, 1000);
+  blinkLED(RLED, 1000);
+  blinkLED(GLED, 1000);
+  blinkLED(BLED, 1000);
   Serial.println("LED test done");
 }
 
@@ -52,13 +52,16 @@ void setup() {
 //test will happen and may be noticed
 void loop() {
 
-
+Serial.println(digitalRead(BTN));
   //-------------------------------------
   //test button works
   //-------------------------------------
   if (digitalRead(BTN) == HIGH) {
-    digitalWrite(YLED, !digitalRead(YLED));
-    delay(500);
+    Serial.println("in IF");
+    digitalWrite(YLED, HIGH);
+    //delay(500);
+  }else{
+    digitalWrite(YLED, LOW);
   }
   Serial.println("Button test done");
 
@@ -66,23 +69,23 @@ void loop() {
   //test all DIPs and trimpot
   //-------------------------------------
   //brightVal = HIGH;
-  brightVal = analogRead(POT);
-  if (digitalRead(DIP1) == HIGH) {
-    analogWrite(RLED, brightVal);
-  } else {
-    digitalWrite(RLED, LOW);
-  }
-  if (digitalRead(DIP2) == HIGH) {
-    analogWrite(GLED, brightVal);
-  } else {
-    digitalWrite(GLED, LOW);
-  }
-  if (digitalRead(DIP3) == HIGH) {
-    analogWrite(BLED, brightVal);
-  } else {
-    digitalWrite(BLED, LOW);
-  }
-  Serial.println("DIP and trimpot tests done");
+//  brightVal = analogRead(POT);
+//  if (digitalRead(DIP1) == HIGH) {
+//    analogWrite(RLED, brightVal);
+//  } else {
+//    digitalWrite(RLED, LOW);
+//  }
+//  if (digitalRead(DIP2) == HIGH) {
+//    analogWrite(GLED, brightVal);
+//  } else {
+//    digitalWrite(GLED, LOW);
+//  }
+//  if (digitalRead(DIP3) == HIGH) {
+//    analogWrite(BLED, brightVal);
+//  } else {
+//    digitalWrite(BLED, LOW);
+//  }
+//  Serial.println("DIP and trimpot tests done");
 
   //-------------------------------------
   //test header triples

@@ -45,3 +45,4 @@ I also put a testpoint rectangle in the tStop layer to leave it as exposed coppe
 Have a qwiic / stemmaQT connector on the I2C pins its a JST SH 4-pin Vertical Connector on Adafruit.
 Or have an led matrix board directly soldered to the I2C pins.
 Or another button without the debounce resistor - maybe both buttons have resistors but also those solder pads to enable or disable them once shown button bounce issues.
+Reverse polarity protection on/before the VIN on the nano
